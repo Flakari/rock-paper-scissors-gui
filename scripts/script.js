@@ -6,100 +6,68 @@ let playing = false;
 
 play.addEventListener('click', function(e) {
     if (playing) return;
-    
+
     playing = true;
     console.log(playing);
     console.log("Hey, first to five!");
+    
+});
+let playerWins = 0;
+let computerWins = 0;
+let round;
+
+rock.addEventListener('click',function(e) {
+    if (!playing) return;
     game();
+    let computerSelection = computerPlay();
+    round = playRound('rock', computerSelection);
+    roundResult('rock', computerSelection);
+});
+
+paper.addEventListener('click', function(e) {
+    if (!playing) return;
+    game();
+    let computerSelection = computerPlay();
+    round = playRound('paper', computerSelection);
+    roundResult('paper', computerSelection);
+});
+
+scissors.addEventListener('click', function(e) {
+    if(!playing) return;
+    game();
+    let computerSelection = computerPlay();
+    round = playRound('scissors', computerSelection);
+    roundResult('scissors', computerSelection);
 });
 
 function game() {
-    const winsNeeded = 5;
-    let playerWins = 0;
-    let computerWins = 0;
-    let round = '';
-
-    rock.addEventListener('click',function(e) {
-        let computerSelection = computerPlay();
-        round = playRound('rock', computerSelection);
-        roundResult('rock', computerSelection);
-    });
-
-    paper.addEventListener('click', function(e) {
-        let computerSelection = computerPlay();
-        round = playRound('paper', computerSelection);
-        roundResult('paper', computerSelection);
-    });
-
-    scissors.addEventListener('click', function(e) {
-        let computerSelection = computerPlay();
-        round = playRound('scissors', computerSelection);
-        roundResult('scissors', computerSelection);
-    });
-
-    function roundResult(playerSelection, computerSelection) {
-        if (round == 'wins') {
-            console.log('You won this round, ' + playerSelection + ' beats ' + computerSelection + '.');
-            playerWins++;
-        } else if (round == 'loses') {
-            console.log('You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.');
-            computerWins++;
+    if (playerWins == 5 || computerWins == 5) {
+        if (playerWins > computerWins) {
+            console.log('');
+            console.log('Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!');
         } else {
-            console.log('You tied, ' + playerSelection + ' ties with ' + computerSelection + '.');
+            console.log('');
+            console.log('Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.');
         }
+        playing = false;
+        playerWins = 0;
+        computerWins = 0;
+        return playing;
     }
-    
+    if (!playing) return;
 }
 
-/*function game() {
-    const winsNeeded = 5;
-    let playerWins = 0;
-    let computerWins = 0;
-
-    while (playerWins != 5 && computerWins != 5) {
-        let round = playRound(playerSelection, computerSelection);
-        const playerSelection = userPlay();
-        const computerSelection = computerPlay();
-        const choice = document.querySelectorAll('.choice');
-
-        if (round == 'wins') {
-            console.log('You won this round, ' + playerSelection + ' beats ' + computerSelection + '.');
-            playerWins++;
-        } else if (round == 'loses') {
-            console.log('You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.');
-            computerWins++;
-        } else {
-            console.log('You tied, ' + playerSelection + ' ties with ' + computerSelection + '.');
-        }
-    }
-    
-    /*for (let i = 0; i < games; i++) {
-        const playerSelection = userPlay();
-        const computerSelection = computerPlay();
-        const choice = document.querySelectorAll('.choice');
-
-        let round = playRound(playerSelection, computerSelection);
-        if (round == 'wins') {
-            console.log('You won this round, ' + playerSelection + ' beats ' + computerSelection + '.');
-            playerWins++;
-        } else if (round == 'loses') {
-            console.log('You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.');
-            computerWins++;
-        } else {
-            console.log('You tied, ' + playerSelection + ' ties with ' + computerSelection + '.');
-        }
-    }
-    if (playerWins > computerWins) {
-        console.log('');
-        console.log('Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!');
-    } else if (playerWins < computerWins) {
-        console.log('');
-        console.log('Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.');
+function roundResult(playerSelection, computerSelection) {
+    if (round == 'wins') {
+        console.log('You won this round, ' + playerSelection + ' beats ' + computerSelection + '.');
+        playerWins++;
+    } else if (round == 'loses') {
+        console.log('You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.');
+        computerWins++;
     } else {
-        console.log('');
-        console.log('Look at that, you and the computer tied at ' + playerWins + ' a piece!');
+        console.log('You tied, ' + playerSelection + ' ties with ' + computerSelection + '.');
     }
-}*/
+}
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'rock') {
