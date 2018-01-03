@@ -2,14 +2,19 @@ const play = document.querySelector('.play');
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const display = document.querySelector('#game-display');
 let playing = false;
 
 play.addEventListener('click', function(e) {
     if (playing) return;
 
+    while (display.firstChild) {
+        display.removeChild(display.firstChild);
+    }
     playing = true;
-    console.log(playing);
-    console.log("Hey, first to five!");
+    let p = document.createElement('p');
+    p.textContent = 'Hey, first to five!';
+    display.appendChild(p);
     
 });
 let playerWins = 0;
@@ -42,13 +47,13 @@ scissors.addEventListener('click', function(e) {
 
 function game() {
     if (playerWins == 5 || computerWins == 5) {
+        let p = document.createElement('p');
         if (playerWins > computerWins) {
-            console.log('');
-            console.log('Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!');
+            p.textContent = 'Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!'
         } else {
-            console.log('');
-            console.log('Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.');
+            p.textContent = 'Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.';
         }
+        display.appendChild(p);
         playing = false;
         playerWins = 0;
         computerWins = 0;
@@ -58,15 +63,17 @@ function game() {
 }
 
 function roundResult(playerSelection, computerSelection) {
+    let p = document.createElement('p');
     if (round == 'wins') {
-        console.log('You won this round, ' + playerSelection + ' beats ' + computerSelection + '.');
+        p.textContent = 'You won this round, ' + playerSelection + ' beats ' + computerSelection + '.';
         playerWins++;
     } else if (round == 'loses') {
-        console.log('You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.');
+        p.textContent = 'You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.';
         computerWins++;
     } else {
-        console.log('You tied, ' + playerSelection + ' ties with ' + computerSelection + '.');
+        p.textContent = 'You tied, ' + playerSelection + ' ties with ' + computerSelection + '.';
     }
+    display.appendChild(p);
 }
 
 function playRound(playerSelection, computerSelection) {
