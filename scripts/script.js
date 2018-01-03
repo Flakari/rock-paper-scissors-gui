@@ -18,26 +18,26 @@ let round;
 
 rock.addEventListener('click',function(e) {
     if (!playing) return;
-    game();
     let computerSelection = computerPlay();
     round = playRound('rock', computerSelection);
     roundResult('rock', computerSelection);
+    game();
 });
 
 paper.addEventListener('click', function(e) {
     if (!playing) return;
-    game();
     let computerSelection = computerPlay();
     round = playRound('paper', computerSelection);
     roundResult('paper', computerSelection);
+    game();
 });
 
 scissors.addEventListener('click', function(e) {
     if(!playing) return;
-    game();
     let computerSelection = computerPlay();
     round = playRound('scissors', computerSelection);
     roundResult('scissors', computerSelection);
+    game();
 });
 
 function game() {
