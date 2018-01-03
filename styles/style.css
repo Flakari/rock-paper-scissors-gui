@@ -1,0 +1,53 @@
+#game-container {
+    margin-top: 30px;
+    background-color: rgb(219, 185, 185);
+    padding: 5px 5px 15px 5px;
+    margin: auto;
+    width: 60%;
+    min-width: 450px;
+    text-align: center;
+}
+
+#rps-buttons {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#play-button {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#computer-wins {
+    float: right;
+}
+
+#player-wins {
+    float: left;
+}
+
+#game-display {
+    background-color: rgb(247, 247, 247);
+    padding: 10px;
+    text-align: center;
+    height: 100px;
+    width: 70%;
+    min-width: 300px;
+    margin: auto;
+}
+
+#game-display p {
+    font-weight: bold;
+}
+
+.result {
+    font-size: 1.25em;
+}
+
+h1 {
+    font-variant: small-caps;
+}

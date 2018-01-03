@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock-Paper-Scissors!</title>
+    <link href="styles/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div id="game-display"></div>
-    <div>
-        <button id="rock" class="choice">Rock</button>
-        <button id="paper" class="choice">Paper</button>
-        <button id="scissors" class="choice">Scissors</button>
+    <div id="game-container">
+        <h1>Rock-Paper-Scissors!</h1>
+        <div id="game-display">
+            <p>I'm gonna disappear! Good-bye cruel world!</p>
+        </div>
+        <div id="player-wins"><h2>0</h2></div>
+        <div id="computer-wins"><h2>0</h2></div>
+        <div id="rps-buttons">
+            <button id="rock" class="choice">Rock</button>
+            <button id="paper" class="choice">Paper</button>
+            <button id="scissors" class="choice">Scissors</button>
+        </div>
+        <div id="play-button">
+            <button class="play">Start New Round</button>
+        </div>
     </div>
     
-    <button class="play">Start New Round</button>
+    
 
     <script src="scripts/script.js"></script>
 </body>

@@ -3,6 +3,9 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const display = document.querySelector('#game-display');
+const playerWinsDiv = document.querySelector('#player-wins').firstChild;
+const computerWinsDiv = document.querySelector('#computer-wins').firstChild;
+let p = document.createElement('p');
 let playing = false;
 
 play.addEventListener('click', function(e) {
@@ -12,7 +15,8 @@ play.addEventListener('click', function(e) {
         display.removeChild(display.firstChild);
     }
     playing = true;
-    let p = document.createElement('p');
+    playerWinsDiv.textContent = 0;
+    computerWinsDiv.textContent = 0;
     p.textContent = 'Hey, first to five!';
     display.appendChild(p);
     
@@ -47,13 +51,14 @@ scissors.addEventListener('click', function(e) {
 
 function game() {
     if (playerWins == 5 || computerWins == 5) {
-        let p = document.createElement('p');
+        let result = document.createElement('p');
+        result.classList.add('result');
         if (playerWins > computerWins) {
-            p.textContent = 'Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!'
+            result.textContent = 'Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!'
         } else {
-            p.textContent = 'Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.';
+            result.textContent = 'Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.';
         }
-        display.appendChild(p);
+        display.appendChild(result);
         playing = false;
         playerWins = 0;
         computerWins = 0;
@@ -63,13 +68,14 @@ function game() {
 }
 
 function roundResult(playerSelection, computerSelection) {
-    let p = document.createElement('p');
     if (round == 'wins') {
         p.textContent = 'You won this round, ' + playerSelection + ' beats ' + computerSelection + '.';
         playerWins++;
+        playerWinsDiv.textContent = playerWins;
     } else if (round == 'loses') {
         p.textContent = 'You lost this round, ' + playerSelection + ' loses to ' + computerSelection + '.';
         computerWins++;
+        computerWinsDiv.textContent = computerWins;
     } else {
         p.textContent = 'You tied, ' + playerSelection + ' ties with ' + computerSelection + '.';
     }
