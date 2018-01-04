@@ -1,19 +1,34 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding-top: 30px;
+}
+
 #game-container {
     margin-top: 30px;
-    background-color: rgb(219, 185, 185);
+    background-color: rgb(111, 152, 206);
     padding: 5px 5px 15px 5px;
     margin: auto;
     width: 60%;
-    min-width: 450px;
+    min-width: 600px;
     text-align: center;
 }
 
 #rps-buttons {
-    padding-top: 10px;
-    padding-bottom: 5px;
-    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    width: 500px;
     margin: auto;
     text-align: center;
+}
+
+#rps-buttons button {
+    width: 120px;
+    height: 35px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #play-button {
@@ -22,22 +37,46 @@
     text-align: center;
 }
 
-#computer-wins {
-    float: right;
+#win-titles div {
+    display: inline-block;
+    width: 200px;
+    padding-top: 5px;
 }
 
-#player-wins {
-    float: left;
+#computer-title {
+    text-align: center;
+}
+
+#player-title {
+    text-align: center;
+}
+
+#separator {
+    display: inline-block;
+    width: 50px;
+}
+
+#wins {
+    margin: auto;
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#wins h2 {
+    display: inline-block;
+    margin: 0 120px 10px 120px;
 }
 
 #game-display {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(211, 211, 247);
     padding: 10px;
     text-align: center;
-    height: 100px;
-    width: 70%;
+    height: 142px;
+    width: 90%;
     min-width: 300px;
     margin: auto;
+    border-radius: 5px;    
 }
 
 #game-display p {
@@ -45,9 +84,31 @@
 }
 
 .result {
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 h1 {
     font-variant: small-caps;
+    font-size: 2.5em;
+}
+
+#game-display .explanation {
+    font-weight: normal;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+#play {
+    width: 200px;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+.line {
+    background-color: #1b186d;
+    height: 5px;
+    width: 70%;
+    min-width: 500px;
+    margin: auto;
 }

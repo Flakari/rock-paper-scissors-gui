@@ -1,4 +1,4 @@
-const play = document.querySelector('.play');
+const play = document.querySelector('#play');
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
@@ -17,7 +17,7 @@ play.addEventListener('click', function(e) {
     playing = true;
     playerWinsDiv.textContent = 0;
     computerWinsDiv.textContent = 0;
-    p.textContent = 'Hey, first to five!';
+    p.textContent = 'Please throw your first hand.';
     display.appendChild(p);
     
 });
@@ -52,13 +52,17 @@ scissors.addEventListener('click', function(e) {
 function game() {
     if (playerWins == 5 || computerWins == 5) {
         let result = document.createElement('p');
+        let newGame = document.createElement('p');
         result.classList.add('result');
+        newGame.classList.add('explanation');
         if (playerWins > computerWins) {
             result.textContent = 'Congratulations! You beat the computer ' + playerWins + ' to ' + computerWins + '!'
         } else {
             result.textContent = 'Ouch! You lost to the computer ' + playerWins + ' to ' + computerWins + '.';
         }
+        newGame.textContent = 'Press \'Start New Round\' to play again!';
         display.appendChild(result);
+        display.appendChild(newGame);
         playing = false;
         playerWins = 0;
         computerWins = 0;

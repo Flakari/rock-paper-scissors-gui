@@ -9,21 +9,29 @@
     <div id="game-container">
         <h1>Rock-Paper-Scissors!</h1>
         <div id="game-display">
-            <p>I'm gonna disappear! Good-bye cruel world!</p>
+            <p><em>Press 'Start New Round' to begin a new game!</em></p>
+            <p class="explanation">All games are first to five against the computer</p>
         </div>
-        <div id="player-wins"><h2>0</h2></div>
-        <div id="computer-wins"><h2>0</h2></div>
         <div id="rps-buttons">
             <button id="rock" class="choice">Rock</button>
             <button id="paper" class="choice">Paper</button>
             <button id="scissors" class="choice">Scissors</button>
         </div>
+        <div class="line"></div>
+        <div id="win-titles">
+            <div id="player-title"><h2>Player Wins</h2></div>
+            <span id="separator"></span>
+            <div id="computer-title"><h2>Computer Wins</h2></div>
+        </div>
+        <div id="wins">
+            <h2 id="player-wins">0</h2>
+            <h2 id="computer-wins">0</h2>
+        </div>
+        <div class="line"></div>
         <div id="play-button">
-            <button class="play">Start New Round</button>
+            <button id="play">Start New Round</button>
         </div>
     </div>
-    
-    
 
     <script src="scripts/script.js"></script>
 </body>
